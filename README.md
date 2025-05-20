@@ -1,0 +1,2 @@
+# ebook-reader-frontend
+NextJs
