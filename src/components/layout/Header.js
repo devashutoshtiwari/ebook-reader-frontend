@@ -1,13 +1,8 @@
-// src/components/layout/Header.js
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import SearchPanel from '@/components/features/search/SearchPanel';
 
-const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
-  const router = useRouter();
+const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {  
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
 
@@ -33,7 +28,7 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
               <i className="bi bi-list fs-4"></i>
             </button>
             <h1 className="fs-4 m-0 d-none d-sm-block logo-text">
-              Demo <span className="text-primary fw-bold">eBook</span>
+              <span className="text-primary fw-bold">NOVENTIQ</span>
             </h1>
           </div>
           
@@ -45,26 +40,6 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
               aria-label="Search"
             >
               <i className="bi bi-search"></i>
-            </button>
-            
-            <button 
-              className="header-control mx-1" 
-              id="bookmarksBtn" 
-              title="Bookmarks" 
-              aria-label="Bookmarks"
-            >
-              <i className="bi bi-bookmark"></i>
-              <span className="badge-indicator bookmarks-count-badge" id="bookmarksCount"></span>
-            </button>
-            
-            <button 
-              className="header-control mx-1" 
-              id="notesBtn" 
-              title="Notes" 
-              aria-label="Notes"
-            >
-              <i className="bi bi-journal-text"></i>
-              <span className="badge-indicator notes-count-badge" id="notesCount"></span>
             </button>
             
             <div className="dropdown d-none d-md-block">
@@ -82,8 +57,6 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
               <ul className="dropdown-menu dropdown-menu-end shadow-sm border-0" aria-labelledby="toolsDropdown">
                 <li><a className="dropdown-item" href="#"><i className="bi bi-download me-2"></i>Download</a></li>
                 <li><a className="dropdown-item" href="#"><i className="bi bi-share me-2"></i>Share</a></li>
-                <li><a className="dropdown-item" href="#"><i className="bi bi-universal-access me-2"></i>Accessibility</a></li>
-                <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="#"><i className="bi bi-printer me-2"></i>Print</a></li>
               </ul>
             </div>
@@ -125,16 +98,13 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
             <i className="bi bi-share me-3"></i>Share
           </a>
           <a href="#" className="list-group-item list-group-item-action">
-            <i className="bi bi-universal-access me-3"></i>Accessibility
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
             <i className="bi bi-printer me-3"></i>Print
           </a>
         </div>
       </div>
 
       {/* Search Container */}
-      {/* {isSearchOpen && (
+      {isSearchOpen && (
         <div className="search-container" style={{ display: 'block' }}>
           <div className="container">
             <div className="input-group">
@@ -145,7 +115,7 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
                 type="text" 
                 className="form-control border-start-0 ps-0" 
                 id="searchInput" 
-                placeholder="Search in book..."
+                placeholder="Search Casestudy"
               />
               <button 
                 className="btn btn-outline-secondary border-start-0" 
@@ -165,21 +135,7 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
             </div>
           </div>
         </div>
-      )} */}
-
-      {isSearchOpen && (
-  <div className="search-container" style={{ display: 'block' }}>
-    <div className="container">
-      <SearchPanel 
-        chapters={chapters} // You'll need to pass chapters down from the parent
-        onNavigateToChapter={(index) => {
-          navigateToChapter(index);
-          setSearchOpen(false);
-        }}
-      />
-    </div>
-  </div>
-)}
+      )}
     </>
   );
 };

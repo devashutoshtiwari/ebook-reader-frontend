@@ -1,59 +1,16 @@
-// src/components/layout/Sidebar.js
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
 
 const Sidebar = ({ isVisible, currentPath }) => {
-  const [activeTab, setActiveTab] = useState('table-of-contents');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [activeTab, setActiveTab] = useState('customer-list');
   const [bookmarks, setBookmarks] = useState([]);
   const [notes, setNotes] = useState([]);
-
-  // Load bookmarks and notes from localStorage on component mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedBookmarks = localStorage.getItem('ebook_bookmarks');
-      const savedNotes = localStorage.getItem('ebook_notes');
-      
-      if (savedBookmarks) {
-        try {
-          setBookmarks(JSON.parse(savedBookmarks));
-        } catch (e) {
-          console.error('Error loading bookmarks:', e);
-        }
-      }
-      
-      if (savedNotes) {
-        try {
-          setNotes(JSON.parse(savedNotes));
-        } catch (e) {
-          console.error('Error loading notes:', e);
-        }
-      }
-    }
-  }, []);
 
   // Handle tab switching
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
-
-  // Filter TOC based on search term
-  const handleTocSearch = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  // Sample TOC data - in a real app, this would come from your book content
-  const tableOfContents = [];
-
-  // Filter TOC items based on search term
-  const filteredToc = tableOfContents.filter(chapter => 
-    chapter.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    chapter.sections?.some(section => 
-      section.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-  );
 
   return (
     <aside className={`book-sidebar ${isVisible ? 'visible' : ''}`} id="sidebar">
@@ -61,11 +18,10 @@ const Sidebar = ({ isVisible, currentPath }) => {
       <div className="reader-profile p-3 border-bottom">
         <div className="d-flex align-items-center gap-3">
           <div className="reader-avatar">
-            <span>JD</span>
+            <span>AT</span>
           </div>
           <div>
-            {/* <div className="reader-name">John Doe</div> */}
-            <div className="reader-progress small text-muted">25% completed</div>
+            <div className="reader-name">Ashutosh Tiwari</div>
           </div>
         </div>
       </div>
@@ -73,11 +29,11 @@ const Sidebar = ({ isVisible, currentPath }) => {
       {/* Sidebar Tabs */}
       <div className="sidebar-tabs">
         <button 
-          className={`sidebar-tab ${activeTab === 'table-of-contents' ? 'active' : ''}`} 
-          onClick={() => handleTabClick('table-of-contents')}
-          aria-selected={activeTab === 'table-of-contents'}
+          className={`sidebar-tab ${activeTab === 'customer-list' ? 'active' : ''}`} 
+          onClick={() => handleTabClick('customer-list')}
+          aria-selected={activeTab === 'customer-list'}
         >
-          <i className="bi bi-list-ul me-2"></i>Contents
+          <i className="bi bi-list-ul me-2"></i>Customers
         </button>
         <button 
           className={`sidebar-tab ${activeTab === 'bookmarks' ? 'active' : ''}`}
@@ -95,83 +51,42 @@ const Sidebar = ({ isVisible, currentPath }) => {
         </button>
       </div>
 
-      {/* Table of Contents Tab */}
-      {/* <div 
-        id="table-of-contents" 
-        className={`tab-content ${activeTab === 'table-of-contents' ? 'active' : ''}`}
+      {/* Customer Tab */}
+      <div 
+        id="customer-list" 
+        className={`tab-content ${activeTab === 'customer-list' ? 'active' : ''}`}
         role="tabpanel"
       >
-        <div className="search-within-toc p-2">
-          <div className="input-group input-group-sm">
-            <span className="input-group-text bg-transparent border-end-0">
-              <i className="bi bi-search"></i>
-            </span>
-            <input 
-              type="text" 
-              className="form-control border-start-0" 
-              value={searchTerm}
-              onChange={handleTocSearch}
-              placeholder="Find in contents..."
-            />
-          </div>
-        </div>
         <ul className="toc-list">
-          {filteredToc.map((chapter) => (
-            <li className="toc-item" key={chapter.id}>
-              <a 
-                href={`#${chapter.id}`} 
-                className={`toc-link ${currentPath === `/${chapter.id}` ? 'active' : ''}`}
-              >
-                <span className="chapter-badge">{chapter.id.replace('chapter', '')}</span>
-                <span>{chapter.title}</span>
-              </a>
-              {chapter.sections && chapter.sections.length > 0 && (
-                <>
-                  <button 
-                    className="btn-expand-toc collapsed" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target={`#sub${chapter.id}`}
-                  >
-                    <i className="bi bi-chevron-down"></i>
-                  </button>
-                  <ul className="collapse sub-toc-list" id={`sub${chapter.id}`}>
-                    {chapter.sections.map((section) => (
-                      <li className="toc-subitem" key={section.id}>
-                        <a 
-                          href={`#${section.id}`} 
-                          className={`toc-sublink ${currentPath === `/${section.id}` ? 'active' : ''}`}
-                        >
-                          <span>{section.title}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </li>
-          ))}
+          <li className="toc-item">
+            <a href={`#`} className={`toc-link active`}>
+              <span>All Customers</span>
+            </a>
+          </li>
+          <li className="toc-item">
+            <a href={`#`} className={`toc-link`}>
+              <span>Customer Name</span>
+            </a>
+          </li>
+          <li className="toc-item">
+            <a href={`#`} className={`toc-link`}>
+              <span>Customer Name</span>
+            </a>
+          </li>
+          <li className="toc-item">
+            <a href={`#`} className={`toc-link`}>
+              <span>Customer Name</span>
+            </a>
+          </li>
         </ul>
-      </div> */}
+      </div>
 
       {/* Bookmarks Tab */}
       <div 
         id="bookmarks" 
         className={`tab-content ${activeTab === 'bookmarks' ? 'active' : ''}`}
         role="tabpanel"
-      >
-        {/* <div className="sidebar-header p-3 d-flex justify-content-between align-items-center">
-          <h5 className="m-0">Your Bookmarks</h5>
-          <div className="btn-group btn-group-sm" role="group">
-            <button className="btn btn-outline-secondary btn-sm" id="sortBookmarks" title="Sort Bookmarks">
-              <i className="bi bi-sort-down"></i>
-            </button>
-            <button className="btn btn-outline-secondary btn-sm" id="clearAllBookmarks" title="Clear All">
-              <i className="bi bi-trash"></i>
-            </button>
-          </div>
-        </div> */}
-        
+      > 
         {bookmarks.length === 0 ? (
           <div id="emptyBookmarks" className="empty-state">
             <div className="empty-icon">
@@ -214,18 +129,6 @@ const Sidebar = ({ isVisible, currentPath }) => {
         className={`tab-content ${activeTab === 'notes' ? 'active' : ''}`}
         role="tabpanel"
       >
-        {/* <div className="sidebar-header p-3 d-flex justify-content-between align-items-center">
-          <h5 className="m-0">Your Notes</h5>
-          <div className="btn-group btn-group-sm" role="group">
-            <button className="btn btn-outline-secondary btn-sm" id="exportNotes" title="Export Notes">
-              <i className="bi bi-download"></i>
-            </button>
-            <button className="btn btn-outline-secondary btn-sm" id="sortNotes" title="Sort Notes">
-              <i className="bi bi-sort-down"></i>
-            </button>
-          </div>
-        </div> */}
-        
         {notes.length === 0 ? (
           <div id="emptyNotes" className="empty-state">
             <div className="empty-icon">

@@ -1,4 +1,3 @@
-// src/components/layout/MainLayout.js
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -15,15 +14,12 @@ const MainLayout = ({ children }) => {
   useEffect(() => {
     // Check if we're in the browser environment
     if (typeof window !== 'undefined') {
-      // Get sidebar state from localStorage or default to true on large screens
       const savedSidebarState = localStorage.getItem('sidebarVisible');
       const initialSidebarState = savedSidebarState 
         ? savedSidebarState === 'true'
         : window.innerWidth >= 992;
       
       setSidebarVisible(initialSidebarState);
-      
-      // Get theme preference from localStorage or use system preference
       const savedTheme = localStorage.getItem('darkMode');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialDarkMode = savedTheme 
@@ -77,19 +73,6 @@ const MainLayout = ({ children }) => {
           {children}
         </div>
       </main>
-      
-      {/* Progress Bar */}
-      <div className="progress-container">
-        <div 
-          id="progressBar" 
-          className="progress-bar" 
-          role="progressbar" 
-          aria-valuenow={0} 
-          aria-valuemin={0} 
-          aria-valuemax={100}
-          style={{ width: '0%' }}
-        ></div>
-      </div>
     </div>
   );
 };

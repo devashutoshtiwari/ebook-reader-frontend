@@ -5,7 +5,7 @@
 /* Add your custom styles here */
 :root {
   --primary: #5e64ac;
-  --sidebar-width: 320px;
+  --sidebar-width: 340px;
   --header-height: 64px;
   /* Add other variables as needed */
 }
@@ -44,7 +44,7 @@
     
     /* Layout values */
     --header-height: 64px;
-    --sidebar-width: 320px;
+    --sidebar-width: 340px;
     --transition-speed: 300ms;
     --border-radius: 8px;
     --card-border-radius: 12px;
@@ -532,8 +532,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-wrapper {
-    max-width: 768px;
-    margin: 0 auto;
+    max-width: 100%;
     padding: 0 1.5rem 6rem;
 }
 
@@ -1053,6 +1052,9 @@ h1, h2, h3, h4, h5, h6 {
     .sidebar-hidden .book-content {
         margin-left: 0;
     }
+    .search-container{
+        margin-left: 340px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -1527,8 +1529,8 @@ html, body {
 /* Fix for mobile sidebar */
 @media (max-width: 768px) {
     .book-sidebar {
-        width: 85%;
-        max-width: 300px;
+        width: 100%;
+        max-width: 340px;
     }
     
     .sidebar-tabs {
