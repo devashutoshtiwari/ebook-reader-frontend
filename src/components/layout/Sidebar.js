@@ -45,28 +45,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
   };
 
   // Sample TOC data - in a real app, this would come from your book content
-  const tableOfContents = [
-    { 
-      id: 'chapter1',
-      title: 'The Art of Digital Reading',
-      sections: [
-        { id: 'chapter1-1', title: 'Introduction' },
-        { id: 'chapter1-2', title: 'Why Interactive eBooks Matter' },
-        { id: 'chapter1-3', title: 'Key Features' }
-      ]
-    },
-    { 
-      id: 'chapter2',
-      title: 'Responsive Design Excellence',
-      sections: [
-        { id: 'chapter2-1', title: 'Principles of Responsive Design' },
-        { id: 'chapter2-2', title: 'Implementation Excellence' }
-      ]
-    },
-    { id: 'chapter3', title: 'Navigation Methods' },
-    { id: 'chapter4', title: 'Search & Discovery' },
-    { id: 'chapter5', title: 'Accessibility Features' }
-  ];
+  const tableOfContents = [];
 
   // Filter TOC items based on search term
   const filteredToc = tableOfContents.filter(chapter => 
@@ -85,7 +64,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
             <span>JD</span>
           </div>
           <div>
-            <div className="reader-name">John Doe</div>
+            {/* <div className="reader-name">John Doe</div> */}
             <div className="reader-progress small text-muted">25% completed</div>
           </div>
         </div>
@@ -117,7 +96,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
       </div>
 
       {/* Table of Contents Tab */}
-      <div 
+      {/* <div 
         id="table-of-contents" 
         className={`tab-content ${activeTab === 'table-of-contents' ? 'active' : ''}`}
         role="tabpanel"
@@ -173,7 +152,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* Bookmarks Tab */}
       <div 
@@ -181,7 +160,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
         className={`tab-content ${activeTab === 'bookmarks' ? 'active' : ''}`}
         role="tabpanel"
       >
-        <div className="sidebar-header p-3 d-flex justify-content-between align-items-center">
+        {/* <div className="sidebar-header p-3 d-flex justify-content-between align-items-center">
           <h5 className="m-0">Your Bookmarks</h5>
           <div className="btn-group btn-group-sm" role="group">
             <button className="btn btn-outline-secondary btn-sm" id="sortBookmarks" title="Sort Bookmarks">
@@ -191,7 +170,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
               <i className="bi bi-trash"></i>
             </button>
           </div>
-        </div>
+        </div> */}
         
         {bookmarks.length === 0 ? (
           <div id="emptyBookmarks" className="empty-state">
@@ -235,7 +214,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
         className={`tab-content ${activeTab === 'notes' ? 'active' : ''}`}
         role="tabpanel"
       >
-        <div className="sidebar-header p-3 d-flex justify-content-between align-items-center">
+        {/* <div className="sidebar-header p-3 d-flex justify-content-between align-items-center">
           <h5 className="m-0">Your Notes</h5>
           <div className="btn-group btn-group-sm" role="group">
             <button className="btn btn-outline-secondary btn-sm" id="exportNotes" title="Export Notes">
@@ -245,7 +224,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
               <i className="bi bi-sort-down"></i>
             </button>
           </div>
-        </div>
+        </div> */}
         
         {notes.length === 0 ? (
           <div id="emptyNotes" className="empty-state">
