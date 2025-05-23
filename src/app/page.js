@@ -1,14 +1,14 @@
 'use client';
 
+import CasestudyList from '@/components/CasestudyList';
 import MainLayout from '@/components/layout/MainLayout';
-import ReaderView from '@/components/reader/ReaderView';
 import { caseStudies } from '@/dummydata/casestudies';
 
 export default function Home() {
 
   return (
     <MainLayout>
-      <ReaderView chapters={caseStudies} />
+      <CasestudyList caseStudies={caseStudies}/>
     </MainLayout>
   );
 }
