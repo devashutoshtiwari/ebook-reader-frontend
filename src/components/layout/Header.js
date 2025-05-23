@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {  
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,7 +29,10 @@ const Header = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
               <i className="bi bi-list fs-4"></i>
             </button>
             <h1 className="fs-4 m-0 d-none d-sm-block logo-text">
-              <span className="text-primary fw-bold">NOVENTIQ</span>
+              <Link href={`/`}>
+                   <span className="text-primary fw-bold">NOVENTIQ</span>
+                </Link>
+             
             </h1>
           </div>
           
