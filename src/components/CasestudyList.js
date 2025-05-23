@@ -66,8 +66,8 @@ export default function CasestudyList({ caseStudies }) {
         </div>
     </div>
       <div className="row">
-        {caseStudies.map((casestudy) => (
-          <div key={casestudy.casestudyid} className={`${view === "tile" ? "col-md-12 mb-4" : "col-md-4 mb-4"}`}>
+        {caseStudies.map((casestudy, index) => (
+          <div key={index} className={`${view === "tile" ? "col-md-12 mb-4" : "col-md-4 mb-4"}`}>
             <div className="card h-100">
               <div className="card-body">
                 <h5 className="card-title">{casestudy.title}</h5>
