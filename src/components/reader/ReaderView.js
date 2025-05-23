@@ -199,7 +199,6 @@ const ReaderView = ({ chapters }) => {
         className="chapter"
         id={currentChapter.casestudyId}
       >
-        <div className="chapter-number">{currentChapterIndex + 1}</div>
         <div className="chapter-heading">
           <h2 className="display-title">{currentChapter.title}</h2>
           {currentChapter.casestudyMarkup && (
