@@ -540,7 +540,7 @@ h1, h2, h3, h4, h5, h6 {
 .chapter {
     position: relative;
     margin-bottom: 5rem;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem;
     background-color: var(--surface-light);
     border-radius: var(--card-border-radius);
     box-shadow: 0 5px 20px var(--shadow);
@@ -586,7 +586,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Page Actions */
 .page-actions {
     position: absolute;
-    top: 0;
+    top: -45px;
     right: 0;
     display: flex;
     margin: 1rem;
@@ -1069,7 +1069,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .chapter {
-        padding: 1.5rem;
+        padding: 3rem 1.5rem 2rem;
     }
 }
 
