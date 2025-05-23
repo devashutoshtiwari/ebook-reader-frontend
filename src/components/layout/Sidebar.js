@@ -170,7 +170,7 @@ const Sidebar = ({ isVisible, currentPath }) => {
                 <div className="fw-normal mb-2">{note.text}</div>
                 {note.reference && (
                   <div className="small fst-italic text-muted mb-2 border-start border-2 ps-2">
-                    "{note.reference.substring(0, 50)}{note.reference.length > 50 ? '...' : ''}"
+                    &quot;{note.reference.substring(0, 50)}{note.reference.length > 50 ? '...' : ''}&quot;
                   </div>
                 )}
                 <div className="d-flex justify-content-between align-items-center">

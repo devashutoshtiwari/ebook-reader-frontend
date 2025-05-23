@@ -76,7 +76,7 @@ const NoteModal = ({
           <div className="modal-body">
             {selectedText && (
               <div className="alert alert-light">
-                <strong>Selected text:</strong> <span className="text-body-secondary">"{selectedText}"</span>
+                <strong>Selected text:</strong> <span className="text-body-secondary">&quot;{selectedText}&quot;</span>
               </div>
             )}
             <div className="mb-3">
