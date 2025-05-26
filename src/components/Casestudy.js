@@ -154,7 +154,7 @@ export default function Casestudy({ casestudy }) {
                   ))}
                 </select>
                 <small id="font-family-help" className="form-text ">
-                  Choose a font that's comfortable for reading
+                  Choose a font that&apos;s comfortable for reading
                 </small>
               </div>
             </div>
